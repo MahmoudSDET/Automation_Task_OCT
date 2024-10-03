@@ -26,14 +26,14 @@ public class ConfigLoader {
 	private static final String CONFIG_PROPERTIES = "_config.properties";
 
 	/* Default config file is stg_config.properties */
-	private static final String STG_CONFIG_PROPERTIES = "stg" + CONFIG_PROPERTIES;
-	private static final String Global_CONFIG_PROPERTIES = "global" + CONFIG_PROPERTIES;
-	private static final String CLOUD_CONFIG_PROPERTIES = "cloud" + CONFIG_PROPERTIES;
-	private static final String INT_CONFIG_PROPERTIES = "int" + CONFIG_PROPERTIES;
+
+
+	private static final String TEST_CONFIG_PROPERTIES = "test" + CONFIG_PROPERTIES;
+
 
 	private static final String RESOURCES_PATH = System.getProperty("user.dir") + "/src/test/resources/";
 	private Properties properties;
-	// private final Properties properties;
+
 	private static ConfigLoader configLoader;
 
 	private ConfigLoader() throws IOException {
@@ -47,7 +47,7 @@ public class ConfigLoader {
 
 		//properties=getConfigPropertyFile(Global_CONFIG_PROPERTIES);
 		properties=new Properties();
-		properties = getConfigPropertyFile(CLOUD_CONFIG_PROPERTIES);
+		properties = getConfigPropertyFile(TEST_CONFIG_PROPERTIES);
 
 
 
@@ -77,13 +77,7 @@ public class ConfigLoader {
 		return getPropertyValue(BASE_URL);
 	}
 
-	public String getUsername() {
-		return getPropertyValue(USERNAME);
-	}
 
-	public String getPassword() {
-		return getPropertyValue(PASSWORD);
-	}
 
 	public String getFailedStepsScreenshot() {
 		return getPropertyValue(FAILED_STEPS_SCREENSHOT);

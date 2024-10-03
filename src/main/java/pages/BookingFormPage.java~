@@ -237,10 +237,11 @@ public static List<AddingAdultsDataModel>addingAdultsDataModels=new ArrayList<>(
     }
 
     public void fillFirstAdultAgainAfterCheckingErrorMessage(AddingAdultsDataModel addingAdultsDataModel) throws InterruptedException, IOException {
-
-
-
-        moveToElementAndClick(SelectState,WaitStrategy.CLICKABLE,"SelectFirstElement");
+        moveToElementWithoutClick(SelectState,WaitStrategy.PRESENCE,"SelectState");
+        moveToElementWithoutClick(SelectFirstElement,WaitStrategy.VISIBLE,"SelectFirstElement");
+      
+        click(SelectState,WaitStrategy.CLICKABLE,"SelectState");
+       // moveToElementAndClick(SelectState,WaitStrategy.CLICKABLE,"SelectFirstElement");
         clickWithJavaScriptExecutor(SelectFirstElement,WaitStrategy.CLICKABLE,"SelectFirstElement");
         //setValueOfElement(SelectState,"Delhi",WaitStrategy.CLICKABLE,"SelectState");
         //sendKeysWithKeys(SelectState,Keys.ENTER,WaitStrategy.CLICKABLE,"SelectState");

@@ -86,7 +86,7 @@ public class BasePage {
 	protected void clickWithJavaScriptExecutor(By by, WaitStrategy waitStrategy, String elementName) throws IOException {
 		// DriverManager.getDriver().findElement(by).click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ExplicitWaitFactory.performExplicitWait(waitStrategy, by));
+
 		js.executeScript("arguments[0].click();", ExplicitWaitFactory.performExplicitWait(waitStrategy, by));
 		ExtentLogger.pass("<b>" + elementName + "</b> is clicked", true);
 		// log(PASS,elementName+" is clicked");

@@ -9,6 +9,8 @@ import com.web.core.listeners.MethodInterceptor;
 import com.web.core.manager.driver.DriverManager;
 import com.web.core.manager.driver.DriverManagerFactory;
 
+import com.web.core.reports.ExtentLogger;
+import com.web.core.reports.ExtentReport;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -42,7 +44,8 @@ public class BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public synchronized void startDriver(@Optional ("CHROME") String browser) {
-
+        ExtentReport.createTest("Start Driver");
+		ExtentLogger.info("This Test is created to insure the driver is created");
 		// System.out.println("@BeforeMethod: @BeforeMethod" + browser);
 		browser = setBrowserValue(browser);
 
@@ -52,12 +55,13 @@ public class BaseTest {
 		// driver = new DriverManager().initializeDriver(browser);
 		// setDriver(new OriginalDriverManager().initializeDriver(browser));
 		setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createDriver());
+		ExtentLogger.info("This Test is created to insure the driver is created");
 		System.out.println("Current Thread info = " + Thread.currentThread().getId() + ", Driver = " + getDriver());
 	}
 
 	@AfterClass
 	public void terminateDriver(){
-	//	getDriver().quit();
+		getDriver().quit();
 	}
 	private String setBrowserValue(String browser) {
 

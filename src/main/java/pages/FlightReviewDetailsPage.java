@@ -18,10 +18,17 @@ public class FlightReviewDetailsPage extends BasePage {
     }
 
 
-    public List<String> checkFlightReviewDetails() throws InterruptedException, IOException {
-        waitForSomeTime();
-        By information = By.xpath("//div[@class='reviewDtlsOverlayContent customScroll']/div//span[2]");
+    By pop=By.xpath("//h3[text()='Review Details']");
 
+    public void  validateTheFlightReviewDetailsPopExist() throws InterruptedException, IOException {
+
+
+    }
+
+    public List<String> checkFlightReviewDetails() throws InterruptedException, IOException {
+
+        By information = By.xpath("//div[@class='reviewDtlsOverlayContent customScroll']/div//span[2]");
+        ExplicitWaitFactory.performExplicitWait(WaitStrategy.VISIBLE, information);
 
         List<WebElement> elements = driver.findElements(information);
         List<String> list = new ArrayList<>();

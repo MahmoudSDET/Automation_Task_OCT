@@ -22,7 +22,7 @@ public class FilterFlightsResultsPage extends BasePage {
     By clickViewSummary=By.xpath("//div[contains(@class,'priceSection')]//button");
     public FilterFlightsResultsPage filterFlights(String flightType, String AirPort) throws InterruptedException, IOException {
        try {
-           click(popUp, WaitStrategy.VISIBLE, "popUp");
+           moveToElementAndClick(popUp, WaitStrategy.VISIBLE, "popUp");
        } catch (Exception e) {
            //do nothing
        }
@@ -53,7 +53,7 @@ public class FilterFlightsResultsPage extends BasePage {
     return card_price;
 }
     public ViewPriceSummaryPage viewPriceSummary() throws InterruptedException, IOException {
-    click(clickViewSummary,WaitStrategy.CLICKABLE,"clickViewSummary");
+    moveToElementAndClick(clickViewSummary,WaitStrategy.CLICKABLE,"clickViewSummary");
 
         return new ViewPriceSummaryPage(getDriver());
     }
