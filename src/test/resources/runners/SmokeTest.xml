@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+	<listeners>
+		<listener
+				class-name="com.web.core.listeners.AnnotationTransformer"/>
+		<listener class-name="com.web.core.listeners.ListenerClass"/>
+		<listener
+				class-name="com.web.core.listeners.MethodInterceptor"/>
+	</listeners>
+	<test thread-count="2" name="Regression Tests execution over Chrome 
+		Browser">
+		<parameter name="browser" value="CHROME"/>
+		<classes>
+		<class name="com.web.core.tests.E2EFirstScenarioTest"/>
+		</classes>
+	</test>
+</suite> <!-- Suite -->
